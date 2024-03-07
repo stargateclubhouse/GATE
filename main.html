@@ -3,15 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Video Background Example</title>
+  <title>Background Video Website</title>
   <style>
     body {
       margin: 0;
-      overflow: hidden; /* Prevent scrollbars from appearing */
+      padding: 0;
+      font-family: Arial, sans-serif;
     }
-
-    video {
+    .video-container {
       position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      overflow: hidden;
+      z-index: -1;
+    }
+    video {
+      position: absolute;
       top: 50%;
       left: 50%;
       min-width: 100%;
@@ -19,33 +28,32 @@
       width: auto;
       height: auto;
       transform: translate(-50%, -50%);
-      z-index: -1; /* Place the video behind other content */
     }
-
-    /* Optional: Add additional styling for your content */
     .content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      position: relative;
+      z-index: 1;
       text-align: center;
+      padding: 20px;
       color: #fff;
+    }
+    h1 {
+      font-size: 3em;
+    }
+    p {
+      font-size: 1.5em;
     }
   </style>
 </head>
 <body>
-
-  <!-- Video Element -->
-  <video autoplay muted loop>
-    <!-- Replace 'your-video.mp4' with the actual video file -->
-    <source src="2001.mp4" type="video/mp4">
-  </video>
-
-  <!-- Content on top of the video -->
-  <div class="content">
-    <h1>GATE</h1>
-    <p>Your website content goes here.</p>
+  <div class="video-container">
+    <video autoplay muted loop>
+      <source src="2001.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
   </div>
-
+  <div class="content">
+    <h1>Welcome to My Website</h1>
+    <p>This is a simple website with a video playing in the background.</p>
+  </div>
 </body>
 </html>
